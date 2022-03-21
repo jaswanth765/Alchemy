@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Registration form</title>
+</head>
+<!--<body style="background-image: url('image1.png'); background-repeat: no-repeat; background-size: cover;">-->
+
+<body style="background-color:rgba(0, 72, 82, 0.342)">
+    <link rel="stylesheet" href="styling1.css">
+    <h1>Hello!</h1>
+    <h2>Welcome to the Registration Form</h2>
+    <h3>Please fill the details below </h3>
+    <h4>---------</h4>
+    <h5>---------</h5>
+    <h6>---------</h6>
+    <form action="success.html">
+        <label>Full Name:</label>
+        <input type="text" id="name"><br>
+        <div style="color: green;" id="valid"></div><br>
+        <label>Are you a student:</label><br>
+        <input type="radio" name="S">
+        <label>Yes</label><br>
+        <input type="radio" name="S">
+        <label>No</label><br><br>
+        <label>City: </label>
+        <select>
+            <option>Choose</option>
+            <option>Bangalore</option>
+            <option>Chennai</option>
+            <option>Mumbai</option>
+            <option>Hyderabad</option>
+            <option>Pune</option>
+        </select><br><br>
+        <!--<label>Email Id: </label>
+            <input type="email"><br><br>-->
+        <input type="submit" value="Submit">
+        <input type="reset" value="Cancel">
+        <input type="button" value="Validate" onclick="validateForm();"><br><br>
+        <input name="ssss"></input>
+    </form>
+    <p>To access new tab in google chrome <a href="https://www.google.com" rel="noopener noreferrer"
+            target="_blank">Click here<a>.</p>
+</body>
+<script>
+    function validateForm() {
+        var d = document.getElementById('name').value;
+        if (d.length > 4) {
+            document.getElementById('valid').innerHTML = 'It is a Valid Name';
+        }
+        else {
+            document.getElementById('valid').innerHTML = 'Please enter a valid name';
+        }
+        others();
+    }
+    function others() {
+        document.getElementsByTagName('h4')[0].innerHTML = "You can Submit this form";
+        document.getElementsByName('ssss')[0].value = "Press submit button";
+    }
+</script>
+
+</html>
