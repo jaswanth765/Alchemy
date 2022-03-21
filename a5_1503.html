@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Form Validation</title>
+  </head>
+
+  <body>
+    <table id="table1">
+      <tr>
+        <td>First Name:</td>
+        <td><input type="text" id="first" onkeyup="validate();" /></td>
+        <td>
+          <div id="firstChk"></div>
+        </td>
+      </tr>
+      <tr>
+        <td>Last Name:</td>
+        <td><input type="text" id="last" onkeyup="validate();" /></td>
+        <td>
+          <div id="lastChk"></div>
+        </td>
+      </tr>
+      <tr>
+        <td>Email:</td>
+        <td><input type="text" id="email" onkeyup="validate();" /></td>
+        <td>
+          <div id="emailChk"></div>
+        </td>
+      </tr>
+    </table>
+    <button type="button" id="submit" onclick="submitForm();">
+      Here it is
+    </button>
+    <div id="formcheck"></div>
+    <p class="testwithclass">Here i am checking with class="" attribute</p>
+    <h3>Here i am checking with tag name</h3>
+    <input name="byname" />
+  </body>
+  <script type="text/javascript">
+    var divs = new Array();
+    divs[0] = "firstChk";
+    divs[1] = "lastChk";
+    divs[2] = "emailChk";
+
+    function validate() {
+      var inputs = new Array();
+      inputs[0] = document.getElementById("first").value;
+      inputs[1] = document.getElementById("last").value;
+      inputs[2] = document.getElementById("email").value;
+
+      var errors = new Array();
+      errors[0] = "<span style='color:red'>Did you enter first name</span>";
+      errors[1] = "<span style='color:red'>Did you enter last name</span>";
+      errors[2] = "<span style='color:red'>Did you enter email address</span>";
+
+      for (i in inputs) {
+        var errmessage = errors[i];
+        var div = divs[i];
+        if (inputs[i] == "") {
+          document.getElementById(div).innerHTML = errmessage;
+        } else if (i == 2) {
+          var atpos = inputs[i].indexof("@");
+          var dotpos = inputs[i].indexof(".");
+          if (
+            atpos < 1 ||
+            dotpos < atpos + 2 ||
+            dotpos + 2 >= inputs[i].length
+          ) {
+            document.getElementById("emailchk").innerHTML =
+              "<span style='color:red'>Enter a valid email address!</span>";
+          } else {
+            document.getElementById(div).innerHTML = "OK";
+          }
+        } else {
+          document.getElementById(div).innerHTML = "OK";
+        }
+      }
+    }
+    function submitForm() {
+      document.getElementById("formcheck").innerHTML =
+        "Form Got Submitted by me";
+      justtrying();
+    }
+    function justtrying() {
+      document.getElementsByTagName("h3")[0].innerHTML =
+        "H3 tag modified using getElementsbyTagname";
+      document.getElementsByName("byname")[0].value = "By name tag now";
+      let elements = document.getElementsByClassName("testwithclass");
+      elements[0].innerHTML =
+        "In just try method now will change using the getelementbyclassname";
+    }
+  </script>
+</html>
