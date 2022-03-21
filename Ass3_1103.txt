@@ -1,0 +1,9 @@
+function ageInDays(age){
+    let days = 365;
+    if (typeof age === 'number') {
+      
+      return age*days
+    }
+    return "error! You should input an number"
+  }
+  console.log(ageInDays("seventy one"));
