@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+  <head> </head>
+  <body>
+    <p id="tt">Surprise</p>
+    <p id="ss">Wow!</p>
+    <p>Hell!! Yeah</p>
+  </body>
+  <script>
+    document.getElementById("tt").addEventListener("click", testfunction);
+    function testfunction() {
+      document.getElementById("ss").innerHTML = "Yo ssup man";
+    }
+    document.getElementById("ss").addEventListener("click", test1function);
+    function test1function() {
+      document.getElementById("tt").innerHTML = "Hows life";
+    }
+  </script>
+</html>
